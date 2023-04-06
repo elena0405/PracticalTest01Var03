@@ -8,6 +8,7 @@
     tools:context=".PracticalTest01Var03MainActivity">
 
     <EditText
+        android:saveEnabled="false"
         android:id="@+id/first_number_edit_text"
         android:inputType="number"
         android:layout_width="match_parent"
@@ -42,6 +43,7 @@
     </LinearLayout>
 
     <EditText
+        android:saveEnabled="false"
         android:id="@+id/second_number_edit_text"
         android:inputType="number"
         android:layout_width="match_parent"
