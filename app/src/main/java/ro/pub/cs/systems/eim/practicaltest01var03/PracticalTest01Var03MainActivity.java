@@ -3,6 +3,7 @@ package ro.pub.cs.systems.eim.practicaltest01var03;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -25,6 +26,7 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
+            String text = null;
             int id = view.getId();
             int first_number = 0;
             int second_number = 0;
@@ -43,11 +45,25 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
 
             if (id == R.id.minus_button) {
                 int res = first_number - second_number;
-                result.setText(first_number + " - " + second_number + " = " + res);
+                text = first_number + " - " + second_number + " = " + res;
+                result.setText(text);
             } else if (id == R.id.plus_button) {
                 int res = first_number + second_number;
-                result.setText(first_number + " + " + second_number + " = " + res);
+                text = first_number + " + " + second_number + " = " + res;
+                result.setText(text);
+            } else if (id == R.id.second_activity_button) {
+                Intent intent = new Intent(getApplicationContext(), PracticalTest01Var03SecondaryActivity.class);
+                intent.putExtra("second_result_text", text);
+                startActivityForResult(intent, 2017);
             }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == 2017) {
+            Toast.makeText(this, "The activity returned with result " + resultCode, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -103,5 +119,6 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
 
         plus.setOnClickListener(listener);
         minus.setOnClickListener(listener);
+        second_activity.setOnClickListener(listener);
     }
 }
