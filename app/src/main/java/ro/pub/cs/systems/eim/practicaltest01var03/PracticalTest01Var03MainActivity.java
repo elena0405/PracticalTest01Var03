@@ -63,7 +63,12 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         if (requestCode == 2017) {
-            Toast.makeText(this, "The activity returned with result " + resultCode, Toast.LENGTH_LONG).show();
+            if (resultCode == -1) {
+                Toast.makeText(this, "CORRECT", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "INCORRECT", Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 
