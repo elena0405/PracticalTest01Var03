@@ -72,6 +72,7 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
             first_number_edit_text.setText(savedInstanceState.getString("first_number_edit_text"));
         } else {
             first_number_edit_text.setText(String.valueOf(1));
+
         }
 
         if (savedInstanceState.containsKey("second_number_edit_text")) {
